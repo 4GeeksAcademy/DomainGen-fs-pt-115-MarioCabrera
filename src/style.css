@@ -2,4 +2,17 @@
 
 body{
     background: white;
+    font-family: monospace
+}
+.top-80 {
+    top: 80% !important;
+}
+.start-80{
+    left: 80% !important;
+}
+.start-120{
+    left: 120% !important;
+}
+.top-90 {
+    top: 90% !important;
 }
