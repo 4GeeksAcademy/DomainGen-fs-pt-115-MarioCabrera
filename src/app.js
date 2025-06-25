@@ -21,25 +21,26 @@ const SelectedList = (id) => {
   const resultado = document.getElementById('list');
   document.getElementById('list').innerHTML = ""
   const filtrados = DomList.filter(item => item.includes(`.${id}`));
-  if (filtrados.length > 0) {
-    resultado.innerHTML = `
+  resultado.innerHTML = `
       <h3>Dominios acabados en ${id}:</h3>
       <ul class="overflow-y-scroll" id="listado">
         ${filtrados.map(item => `<li>${item}</li>`).join('')}
       </ul>
     `;
-    document.getElementById("list").classList.add("border","border-secondary","rounded-3","border-3");
-  } else {
-    resultado.innerHTML = `<p>No se encontraron resultados para <strong>${id}</strong>.</p>`;
-  }
+  document.getElementById("list").classList.add("border", "border-secondary", "rounded-3", "border-3");
 }
 const Opciones = document.querySelectorAll('.btn');
 Opciones.forEach((opc) => {
+
+  opc.addEventListener('mouseenter', () => {
+    opc.classList.add('btn-danger'); // cambiar a rojo cuando hover
+  });
+
+  opc.addEventListener('mouseleave', () => {
+    opc.classList.remove('btn-danger');
+  });
   opc.addEventListener("click", (event) => {
     let id = event.target.id;
-    document.getElementById("list").style.display = "block"
     SelectedList(id)
   });
 });
-
-    document.getElementById("list").style.display = "none"
